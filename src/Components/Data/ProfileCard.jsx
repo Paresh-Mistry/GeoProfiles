@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import MapPage from "../Routes/MapPage";
+import { Layoutwrapper } from "../Layout/Layoutwrapper";
+import { FaTimes } from "react-icons/fa";
 
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
 
     const CardsData = [
         {
@@ -48,37 +49,51 @@ const ProfileCard = () => {
         }
     ]
 
+
+    console.log(props.search)
+    let userdata = props.search
+        ? CardsData.filter(element =>
+            element.name.toLowerCase().includes(props.search.toLowerCase())
+        )
+        : CardsData; 
+    
+    if( userdata.length == 0){
+       return (<div className="bg-red-100 inline-flex gap-2 items-center p-3 mt-2 text-red-500 rounded text-sm"><FaTimes/>{" "}Data Not Found</div>)
+    }   
+
     return (
         <>
-            {CardsData.map((e) => (
-                <div key={e.name} className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-                    <img
-                        className="w-full h-48 object-cover"
-                        src={`https://picsum.photos/300/200?random=${Math.random()}`}
-                        alt="Profile"
-                    />
-                    <div className="p-4 text-center">
+            {
+               userdata ? userdata.map((e) => (
+                    <div key={e.name} className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
                         <img
-                            className="w-24 h-24 mx-auto rounded-full border-4 border-gray-300 -mt-12"
-                            src={!e.Image || e.Image == " " ? `https://ui-avatars.com/api/?name=${e.name.split()[0]}+${e.name.split()[0]}&size=50` : e.Image} // Replace with your image URL
+                            className="w-full h-48 object-cover"
+                            src={`https://picsum.photos/300/200?random=${Math.random()}`}
                             alt="Profile"
                         />
-                        <h2 className="text-xl font-semibold text-gray-800 mt-4">{e.name}</h2>
-                        <p className="text-gray-600 text-sm mt-2">
-                            A passionate web developer with expertise in building modern, user-friendly websites. Loves to explore new technologies and contribute to open source.
-                        </p>
-                        <div className="flex w-full mt-8 gap-2">
-                            <Link to={`userlocation/${e.name}/${e.longitude}/${e.latitude}`} className="w-full bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition">
-                                Summary
-                            </Link>
-                            <Link to={`/userdetails/` + e.sno} className="border w-full border-blue-500 text-blue-500 px-4 py-2 rounded-full">
-                                Views
-                            </Link>
+                        <div className="p-4 text-center">
+                            <img
+                                className="w-24 h-24 mx-auto rounded-full border-4 border-gray-300 -mt-12"
+                                src={!e.Image || e.Image == " " ? `https://ui-avatars.com/api/?name=${e.name.split()[0]}+${e.name.split()[0]}&size=50` : e.Image} // Replace with your image URL
+                                alt="Profile"
+                            />
+                            <h2 className="text-xl font-semibold text-gray-800 mt-4">{e.name}</h2>
+                            <p className="text-gray-600 text-sm mt-2">
+                                A passionate web developer with expertise in building modern, user-friendly websites. Loves to explore new technologies and contribute to open source.
+                            </p>
+                            <div className="flex w-full mt-8 gap-2">
+                                <Link to={`userlocation/${e.name}/${e.longitude}/${e.latitude}`} className="w-full bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition">
+                                    Summary
+                                </Link>
+                                <Link to={`/userdetails/` + e.sno} className="border w-full border-blue-500 text-blue-500 px-4 py-2 rounded-full">
+                                    Views
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
-
+                ))
+                : error
+            }
         </>
     );
 };

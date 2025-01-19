@@ -7,7 +7,6 @@ import MapPage from './Components/Routes/MapPage';
 import Userdetails from './Components/Routes/Userdetails';
 import { context } from './Components/context/Createcontext';
 
-
 function App() {
 
   return (

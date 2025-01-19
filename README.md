@@ -1,8 +1,28 @@
-# React + Vite
+# User Geolocation with React.js and Leaflet Maps
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates how to use **React.js** in combination with **Leaflet** to display a map and track the user's location in real-time.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Displays a map using Leaflet.js.
+- Tracks and centers the user's current location on the map.
+- Real-time updates as the user moves.
+- Responsive layout for various screen sizes.
+
+## Prerequisites
+
+To run this project locally, you will need:
+
+- Node.js (v14.x or higher)
+- npm or yarn
+
+## Project Interface 
+
+
+
+## Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/yourusername/user-geolocation-react-leaflet.git
