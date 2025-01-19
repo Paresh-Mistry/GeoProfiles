@@ -18,12 +18,6 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
-              to="/userlocation"
-              className="text-gray-700 hover:text-indigo-600 transition duration-300"
-            >
-              Map
-            </Link>
           </div>
 
           <div className="md:hidden flex items-center">
