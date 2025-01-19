@@ -6,6 +6,7 @@ import { Route, Routes, Link, BrowserRouter } from 'react-router-dom';
 import MapPage from './Components/Routes/MapPage';
 import Userdetails from './Components/Routes/Userdetails';
 import { context } from './Components/context/Createcontext';
+import ErrorPage from './Components/Routes/ErrorPage';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='' element={<Dashboard />} />
           <Route path='/userlocation/:name/:long/:lat' element={<MapPage />} />
           <Route path='/userdetails/:sno' element={<Userdetails />} />
+          <Route path='/*' element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </context.Provider>
