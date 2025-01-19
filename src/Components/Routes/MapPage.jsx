@@ -14,7 +14,7 @@ const MapPage = () => {
   return (
     <Layoutwrapper>
       <div className='h-[100vh]'>
-        <MapContainer center={position} zoom={zoomLevel} style={{ height: "100%", width: "100%" }}>
+        <MapContainer center={position} zoom={zoomLevel} className='h-full w-full z-10'>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />

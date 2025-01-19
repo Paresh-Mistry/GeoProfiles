@@ -26,7 +26,7 @@ export const Dashboard = () => {
                         <h1 className='font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl font-sanserif text-gray-600'>User Data</h1>
                     </div>
                     <div className='flex gap-2'>
-                    {search && <input className='border rounded-lg px-4 w-40' type="search" id="" onChange={e=> setsearchvalue(e.target.value)} value={searchvalue} placeholder='Search User' />}
+                    {search && <input className='border active:border-white rounded-l-full rounded-r px-4 w-40 text-sm' type="search" id="" onChange={e=> setsearchvalue(e.target.value)} value={searchvalue} placeholder='Search User' />}
                     <button className='md:px-4 px-2 py-2 border rounded mr-1' onClick={()=>OnSearching()}><FaSearch /></button>
                     </div>
                 </div>
